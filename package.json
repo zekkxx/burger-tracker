@@ -1,0 +1,31 @@
+{
+  "name": "burger-tracker",
+  "version": "1.0.0",
+  "description": "A project to track burgers that are being eaten. I guess. Not sure why you want this.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "watch": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zekkxx/burger-tracker.git"
+  },
+  "keywords": [],
+  "author": "Kieran `zekkxx` Anthony",
+  "license": "Unliscense",
+  "bugs": {
+    "url": "https://github.com/zekkxx/burger-tracker/issues"
+  },
+  "homepage": "https://github.com/zekkxx/burger-tracker#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-handlebars": "^5.2.0",
+    "mysql2": "^2.2.5",
+    "sequelize": "^6.5.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
