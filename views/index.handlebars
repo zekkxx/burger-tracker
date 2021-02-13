@@ -7,6 +7,7 @@
         {{#unless devoured}}
             <li>
                 {{this.name}}
+                <button class="devour" id={{this.id}}>Eat Me!</button>
             </li>
         {{/unless}}
     {{/each}}
@@ -19,6 +20,7 @@
         {{#if devoured}}
             <li>
                 {{this.name}}
+                <button class="digest" id={{this.id}}>Digest Me!</button>
             </li>
         {{/if}}
     {{/each}}

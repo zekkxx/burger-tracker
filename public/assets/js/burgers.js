@@ -11,4 +11,18 @@ $(function(){
             location.reload();
         })
     })
+    $(".devour").on("click", function(event){
+        $.ajax("/api/burgers/"+this.id, {
+            type: "PUT"
+        }).then(function(response){
+            location.reload();
+        })
+    })
+    $(".digest").on("click", function(event){
+        $.ajax("/api/burgers/"+this.id, {
+            type: "DELETE"
+        }).then(function(response){
+            location.reload();
+        })
+    })
 });
