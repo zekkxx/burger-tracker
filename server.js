@@ -1,28 +1,7 @@
 let express = require("express");
 let exphbs = require("express-handlebars");
-
-let myBurgers=[
-    {
-        name: "Kieran's Special Flameburger",
-        devoured: false
-    },
-    {
-        name: "Fried Chicken McZeke",
-        devoured: false
-    },
-    {
-        name: "Penn Lake's Roast Beef",
-        devoured: false
-    },
-    {
-        name: "Triple Decker Pounder",
-        devoured: false
-    },
-    {
-        name: "French Toast Super Burger",
-        devoured: true
-    }
-]
+const db = require("./models");
+let htmlRoutes = require('./routes/html-routes');
 
 const PORT = process.env.PORT || 8080;
 let app = express();
@@ -34,10 +13,11 @@ app.use(express.json());
 app.engine("handlebars", exphbs({defaultLayout:"main"}));
 app.set("view engine", "handlebars");
 
-app.get("/", (req, res)=>{
-    res.render("index", { burgers: myBurgers })
-})
+app.use(htmlRoutes);
+app.use(require('./routes/api-routes'));
 
-app.listen(PORT, function(){
-    console.log("Server listening on: http://localhost:"+PORT);
+db.sequelize.sync({force:true}).then(function(){
+    app.listen(PORT, function(){
+        console.log("Server listening on: http://localhost:"+PORT);
+    })
 })
