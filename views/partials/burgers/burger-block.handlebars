@@ -1,0 +1,8 @@
+<li>
+    {{this.name}}
+    {{#if devoured}}
+        <button class="digest" id={{this.id}}>Digest Me!</button>
+    {{else}}
+        <button class="devour" id={{this.id}}>Eat Me!</button>
+    {{/if}}
+</li>
